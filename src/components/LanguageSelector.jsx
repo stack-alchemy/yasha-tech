@@ -49,8 +49,7 @@ export default function LanguageSelector() {
                   setOpen(false);
                 }}
               >
-                <span className="lang-selector-icon" aria-hidden="true"><FiGlobe /></span>
-                <span>{lang.initial}</span>
+                {lang.initial}
               </button>
             </li>
           ))}
