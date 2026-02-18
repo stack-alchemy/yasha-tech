@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
+import { FiGlobe } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
 import './LanguageSelector.css';
 
 const languages = [
-  { code: 'en', label: 'English' },
-  { code: 'ru', label: 'Русский' },
-  { code: 'zh', label: '简体中文' },
+  { code: 'en', initial: 'EN' },
+  { code: 'ru', initial: 'РУ' },
+  { code: 'zh', initial: '中文' },
 ];
 
 export default function LanguageSelector() {
@@ -33,7 +34,8 @@ export default function LanguageSelector() {
         aria-haspopup="listbox"
         aria-label="Select language"
       >
-        {current.label}
+        <span className="lang-selector-icon" aria-hidden="true"><FiGlobe /></span>
+        <span className="lang-selector-initial">{current.initial}</span>
       </button>
       {open && (
         <ul className="lang-selector-dropdown" role="listbox">
@@ -47,7 +49,8 @@ export default function LanguageSelector() {
                   setOpen(false);
                 }}
               >
-                {lang.label}
+                <span className="lang-selector-icon" aria-hidden="true"><FiGlobe /></span>
+                <span>{lang.initial}</span>
               </button>
             </li>
           ))}
