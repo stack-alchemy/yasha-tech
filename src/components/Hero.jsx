@@ -1,7 +1,9 @@
 import logo from '../assets/logo.png';
+import { useLanguage } from '../context/LanguageContext';
 import './Hero.css';
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section className="hero">
       {/* Background image */}
@@ -26,10 +28,10 @@ export default function Hero() {
 
       <div className="hero-content">
         <img src={logo} alt="Yasha Technology" className="hero-logo" />
-        <p className="hero-tagline">Software Engineering & Product Development Partner</p>
-        <h1 className="hero-headline">Build, Launch, Scale Reliable Digital Products</h1>
+        <p className="hero-tagline">{t('hero.tagline')}</p>
+        <h1 className="hero-headline">{t('hero.headline')}</h1>
         <a href="#contact" className="hero-cta" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
-          Let&apos;s Work Together
+          {t('hero.cta')}
         </a>
       </div>
 

@@ -1,26 +1,26 @@
 import ScrollReveal from './ScrollReveal';
 import { FiSearch, FiLayers, FiCode, FiCheckCircle, FiSend, FiTrendingUp } from 'react-icons/fi';
+import { useLanguage } from '../context/LanguageContext';
 import './Process.css';
 
 const steps = [
-  { num: 1, title: 'Discovery', desc: 'Understand business goals and users', icon: FiSearch },
-  { num: 2, title: 'Architecture', desc: 'System design and planning', icon: FiLayers },
-  { num: 3, title: 'Development', desc: 'Frontend + backend implementation', icon: FiCode },
-  { num: 4, title: 'Testing', desc: 'QA, security, and performance checks', icon: FiCheckCircle },
-  { num: 5, title: 'Launch', desc: 'Production deployment and monitoring', icon: FiSend },
-  { num: 6, title: 'Scale', desc: 'Optimization and ongoing support', icon: FiTrendingUp },
+  { num: 1, titleKey: 'process.steps.0.title', descKey: 'process.steps.0.desc', icon: FiSearch },
+  { num: 2, titleKey: 'process.steps.1.title', descKey: 'process.steps.1.desc', icon: FiLayers },
+  { num: 3, titleKey: 'process.steps.2.title', descKey: 'process.steps.2.desc', icon: FiCode },
+  { num: 4, titleKey: 'process.steps.3.title', descKey: 'process.steps.3.desc', icon: FiCheckCircle },
+  { num: 5, titleKey: 'process.steps.4.title', descKey: 'process.steps.4.desc', icon: FiSend },
+  { num: 6, titleKey: 'process.steps.5.title', descKey: 'process.steps.5.desc', icon: FiTrendingUp },
 ];
 
 export default function Process() {
+  const { t } = useLanguage();
   return (
     <section id="process" className="section process">
       <div className="process-bg" aria-hidden="true" />
       <div className="container">
         <ScrollReveal>
-          <h2 className="section-title">Our Development Process</h2>
-        <p className="process-intro">
-          You always receive progress updates and demos during development cycles.
-        </p>
+          <h2 className="section-title">{t('process.title')}</h2>
+        <p className="process-intro">{t('process.intro')}</p>
         <div className="process-steps">
           {steps.map((step, i) => {
             const Icon = step.icon;
@@ -30,8 +30,8 @@ export default function Process() {
                 <Icon />
               </div>
               <div className="process-content">
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
+                <h3>{t(step.titleKey)}</h3>
+                <p>{t(step.descKey)}</p>
               </div>
               {i < steps.length - 1 && <div className="process-connector" />}
             </div>

@@ -1,49 +1,49 @@
 import ScrollReveal from './ScrollReveal';
 import { FiCheck, FiGitBranch, FiDatabase, FiBell, FiLock, FiZap } from 'react-icons/fi';
+import { useLanguage } from '../context/LanguageContext';
 import './Quality.css';
 
-const items = [
-  { title: 'Code reviews', desc: 'Every feature undergoes peer review before merge.', icon: FiCheck },
-  { title: 'Version control & rollback', desc: 'Full history tracking with one-click rollback capability.', icon: FiGitBranch },
-  { title: 'Automated backups', desc: 'Continuous backups with point-in-time recovery.', icon: FiDatabase },
-  { title: 'Monitoring & alerting', desc: 'Real-time observability and proactive incident response.', icon: FiBell },
-  { title: 'Secure authentication', desc: '2FA, SSO, and role-based access controls.', icon: FiLock },
-  { title: 'Performance optimization', desc: 'Load testing and optimization before launch.', icon: FiZap },
+const itemKeys = [
+  { titleKey: 'quality.items.0.title', descKey: 'quality.items.0.desc', icon: FiCheck },
+  { titleKey: 'quality.items.1.title', descKey: 'quality.items.1.desc', icon: FiGitBranch },
+  { titleKey: 'quality.items.2.title', descKey: 'quality.items.2.desc', icon: FiDatabase },
+  { titleKey: 'quality.items.3.title', descKey: 'quality.items.3.desc', icon: FiBell },
+  { titleKey: 'quality.items.4.title', descKey: 'quality.items.4.desc', icon: FiLock },
+  { titleKey: 'quality.items.5.title', descKey: 'quality.items.5.desc', icon: FiZap },
 ];
 
 export default function Quality() {
+  const { t } = useLanguage();
   return (
     <section id="quality" className="section quality">
       <div className="quality-bg" aria-hidden="true" />
       <div className="container">
         <ScrollReveal>
-          <h2 className="section-title">Quality, Security & Reliability</h2>
-          <p className="quality-intro">
-            We build systems intended for production usage — not prototypes that fail under real users.
-          </p>
+          <h2 className="section-title">{t('quality.title')}</h2>
+          <p className="quality-intro">{t('quality.intro')}</p>
           <div className="quality-grid">
-            {items.slice(0, 4).map((item, i) => {
+            {itemKeys.slice(0, 4).map((item, i) => {
               const Icon = item.icon;
               return (
                 <div key={i} className="quality-card">
                   <div className="quality-card-icon" aria-hidden="true">
                     <Icon />
                   </div>
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
+                  <h3>{t(item.titleKey)}</h3>
+                  <p>{t(item.descKey)}</p>
                 </div>
               );
             })}
             <div className="quality-grid-center">
-              {items.slice(4, 6).map((item, i) => {
+              {itemKeys.slice(4, 6).map((item, i) => {
                 const Icon = item.icon;
                 return (
                   <div key={i} className="quality-card">
                     <div className="quality-card-icon" aria-hidden="true">
                       <Icon />
                     </div>
-                    <h3>{item.title}</h3>
-                    <p>{item.desc}</p>
+                    <h3>{t(item.titleKey)}</h3>
+                    <p>{t(item.descKey)}</p>
                   </div>
                 );
               })}

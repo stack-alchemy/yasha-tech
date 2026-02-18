@@ -9,6 +9,8 @@ import Process from './components/Process';
 import Quality from './components/Quality';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import LanguageSelector from './components/LanguageSelector';
+import GoToTop from './components/GoToTop';
 import './App.css';
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
         <Contact />
         <Footer />
       </main>
+      <GoToTop />
     </>
   );
 }
