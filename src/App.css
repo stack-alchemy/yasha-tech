@@ -1,0 +1,19 @@
+/* App-level styles - section layout */
+.section {
+  padding: 5rem 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 2rem;
+  text-align: center;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}

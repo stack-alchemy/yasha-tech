@@ -1,0 +1,161 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 6rem 2rem 4rem;
+  overflow: hidden;
+}
+
+/* Background image - full viewport width */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.75) 100%),
+    url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+}
+
+/* Animated mesh gradient */
+.hero-mesh {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 100% 80% at 20% 20%, rgba(239, 68, 68, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 80% 10%, rgba(220, 38, 38, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 80% at 50% 80%, rgba(239, 68, 68, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 40% at 70% 60%, rgba(251, 113, 133, 0.08) 0%, transparent 40%);
+  animation: meshMove 15s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes meshMove {
+  0% { opacity: 1; transform: scale(1) translate(0, 0); }
+  50% { opacity: 0.9; transform: scale(1.05) translate(2%, 1%); }
+  100% { opacity: 1; transform: scale(1) translate(-1%, -1%); }
+}
+
+/* Grid overlay */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(239, 68, 68, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239, 68, 68, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Floating circuit nodes */
+.hero-float {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(248, 113, 113, 0.6);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+  animation: floatPulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-float-1 { top: 15%; left: 12%; animation-delay: 0s; }
+.hero-float-2 { top: 25%; right: 18%; animation-delay: 0.5s; width: 6px; height: 6px; }
+.hero-float-3 { bottom: 30%; left: 20%; animation-delay: 1s; }
+.hero-float-4 { bottom: 20%; right: 15%; animation-delay: 1.5s; width: 5px; height: 5px; }
+.hero-float-5 { top: 40%; right: 25%; animation-delay: 2s; }
+
+@keyframes floatPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Code bracket decorations */
+.hero-code {
+  position: absolute;
+  font-family: 'Monaco', 'Consolas', monospace;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  color: rgba(248, 113, 113, 0.25);
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.hero-code span:nth-child(1) { color: rgba(248, 113, 113, 0.4); }
+.hero-code span:nth-child(2) { color: rgba(251, 113, 133, 0.35); }
+.hero-code span:nth-child(3) { color: rgba(248, 113, 113, 0.4); }
+
+.hero-code-left {
+  bottom: 25%;
+  left: 5%;
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.hero-code-right {
+  top: 30%;
+  right: 5%;
+  animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 860px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out both;
+}
+
+.hero-logo {
+  height: 72px;
+  width: auto;
+  margin-bottom: 1.5rem;
+}
+
+.hero-tagline {
+  font-size: 1.1rem;
+  color: #f87171;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.hero-headline {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.4);
+}
+
+@media (max-width: 768px) {
+  .hero-code { display: none; }
+  .hero-float-4, .hero-float-5 { display: none; }
+}

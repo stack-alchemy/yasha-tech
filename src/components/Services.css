@@ -1,0 +1,130 @@
+.services {
+  position: relative;
+}
+
+.services-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.75) 100%),
+    url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.service-card {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.service-card:hover {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.service-card.expanded {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.service-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.service-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: #f87171;
+  flex-shrink: 0;
+}
+
+.service-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.service-number {
+  font-size: 0.85rem;
+  color: #f87171;
+  font-weight: 600;
+  min-width: 24px;
+}
+
+.service-header h3 {
+  flex: 1;
+  font-size: 1.1rem;
+  margin: 0;
+  color: #fff;
+}
+
+.service-toggle {
+  font-size: 1.5rem;
+  color: #f87171;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.service-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out;
+}
+
+.service-card.expanded .service-body {
+  max-height: 2000px;
+}
+
+.service-desc {
+  padding: 0 1.5rem 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.service-body ul {
+  padding: 0 1.5rem 1rem 1.5rem;
+  margin: 0;
+  list-style: none;
+}
+
+.service-body li {
+  padding: 0.25rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+}
+
+.service-body li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #f87171;
+}
+
+.service-footer {
+  padding: 1rem 1.5rem;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #f87171;
+  background: rgba(0, 0, 0, 0.25);
+}
